@@ -1,16 +1,16 @@
-\chapter{Tu Primer Programa y un Vistazo a la Historia}
-\label{chap:hola_mundo}
+\section{Tu Primer Programa y un Vistazo a la Historia}
+\label{sec:tu_primer_programa}
 
 % Introducción al capítulo, explicando que este es el primer paso práctico para escribir código.
 
-\section{El Ritual de Iniciación: "Hola, Mundo"}
-\label{sec:ritual_hola_mundo}
+\subsection{El Ritual de Iniciación: Hola, Mundo}
+\label{subsec:ritual_hola_mundo}
 
 Todo viaje épico comienza con un primer paso, y en el mundo de la programación, ese paso casi siempre es el famoso programa "Hola, Mundo". Este pequeño programa, que simplemente imprime un saludo en la pantalla, es mucho más que una simple línea de código; es un rito de iniciación universal.
 
 Su origen se remonta al libro "The C Programming Language" de Brian Kernighan y Dennis Ritchie, los creadores del lenguaje C. Desde entonces, se ha convertido en la primera prueba de fuego para cualquier nuevo programador y para cualquier nuevo entorno de desarrollo. Si tu "Hola, Mundo" funciona, sabes que tu compilador está instalado correctamente y que estás listo para empezar.
 
-\subsection{Nuestro Primer Programa en C++ Moderno}
+\subsubsection{Nuestro Primer Programa en C++ Moderno}
 Aquí tienes la versión moderna de este programa en C++. No te preocupes si no entiendes cada detalle de inmediato; lo desglosaremos justo después.
 
 \begin{lstlisting}
@@ -22,14 +22,14 @@ int main() { // La función principal donde comienza la ejecución del programa
 }
 \end{lstlisting}
 
-\subsection{Anatomía de Nuestro Programa}
+\subsubsection{Anatomía de Nuestro Programa}
 Vamos a desglosar este pequeño programa, línea por línea, para entender sus componentes básicos. Recuerda nuestro "contrato pedagógico": te daremos la explicación intuitiva ahora, y la profundidad técnica vendrá más adelante.
 
 \begin{itemize}
     \item \textbf{\texttt{\#include <iostream>}:} Esta línea le dice al compilador que queremos usar la "caja de herramientas" estándar de C++ que maneja la entrada y salida de datos (como mostrar texto en la pantalla o leer desde el teclado). Sin ella, no podríamos usar `std::cout`.
     \item \textbf{\texttt{int main() \{ ... \}}:} Esta es la función principal de tu programa. Todo programa en C++ debe tener una función `main`. Es el punto de partida donde el sistema operativo comienza a ejecutar tu código. El `int` indica que esta función devolverá un número entero (generalmente 0 si todo salió bien).
     \item \textbf{\texttt{std::cout}:} Como ya vimos, `std` es la "caja de herramientas estándar". `cout` (abreviatura de "Character Output") es la herramienta dentro de esa caja que nos permite enviar texto a la consola (tu pantalla).
-    \item \textbf{\texttt{<<}:} Este es el "operador de inserción". Piensa en él como una flecha que "envía" o "inserta" lo que está a su derecha hacia `std::cout` (la consola).
+    \item \textbf{\texttt{\string<\string<}:} Este es el "operador de inserción". Piensa en él como una flecha que "envía" o "inserta" lo que está a su derecha hacia `std::cout` (la consola).
     \item \textbf{\texttt{"Hola, Mundo!"}:} Este es el mensaje que queremos mostrar. Cualquier texto entre comillas dobles se considera una "cadena de caracteres" (string literal).
     \item \textbf{\texttt{std::endl}:} También de la caja de herramientas `std`, `endl` (abreviatura de "end line") inserta un salto de línea (como presionar Enter) y asegura que todo el texto anterior se muestre inmediatamente en la consola.
     \item \textbf{\texttt{;}:} El punto y coma marca el final de una instrucción en C++. Es como el punto final de una oración. Olvidarlo es un error muy común al principio.
@@ -37,8 +37,3 @@ Vamos a desglosar este pequeño programa, línea por línea, para entender sus c
 \end{itemize}
 
 ¡Felicidades! Acabas de desglosar tu primer programa en C++.
-\section{Nota Histórica}
-\label{sec:nota_historica}
-
-% 1. Mostrar cómo se hacía en C con printf.
-% 2. Explicar brevemente por qué el enfoque de std::cout es superior (principalmente, seguridad de tipos).
