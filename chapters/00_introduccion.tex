@@ -1,0 +1,82 @@
+\chapter{Antes de Empezar (El Contrato Pedagógico)}
+\label{chap:introduccion}
+
+% Contenido introductorio al capítulo...
+
+\section{¿Por qué aprender C++ hoy?}
+\label{sec:motivacion}
+
+En un mundo tecnológico donde nuevos lenguajes de programación aparecen constantemente, podrías preguntarte: ¿por qué aprender C++, un lenguaje con décadas de historia? La respuesta es tan simple como poderosa: \textbf{rendimiento y control}.
+
+Imagina los lenguajes de programación como vehículos. Lenguajes como Python o JavaScript son como modernos coches automáticos: fáciles de usar, cómodos y perfectos para los trayectos del día a día. C++, en cambio, es como un coche de Fórmula 1: requiere más habilidad, exige entender la mecánica y no perdona errores, pero ofrece una velocidad y un control que ningún otro vehículo puede igualar.
+
+Pero, ¿de dónde viene esa velocidad? La respuesta reside en su filosofía de diseño fundamental: C++ opera increíblemente cerca del hardware del ordenador. A diferencia de otros lenguajes que añaden capas de abstracción que consumen recursos (como un "recolector de basura" o una máquina virtual), C++ te da un acceso casi directo a la memoria. Este principio se resume en una de sus ideas más famosas: \textbf{no pagas por lo que no usas} (conocido como \textit{zero-cost abstraction}). Esto significa que las elegantes herramientas de alto nivel que el lenguaje te ofrece están diseñadas para compilar en código máquina tan eficiente como si lo hubieras escrito a mano de la forma más optimizada posible. No hay un "impuesto" de rendimiento por escribir código limpio y moderno.
+
+Cuando el rendimiento es crítico y cada microsegundo cuenta, C++ es el rey indiscutible. Por eso es el lenguaje que impulsa:
+\begin{itemize}
+    \item \textbf{Motores de videojuegos AAA} como Unreal Engine, que crean mundos inmersivos y realistas.
+    \item \textbf{Sistemas de trading de alta frecuencia} en Wall Street, donde las operaciones se realizan en nanosegundos.
+    \item \textbf{Software de renderizado 3D} y efectos especiales que dan vida a las películas de Hollywood.
+    \item \textbf{Componentes clave de sistemas operativos y navegadores web} que usas a diario.
+    \item \textbf{Sistemas embebidos y el Internet de las Cosas (IoT)}, desde el software de tu coche hasta dispositivos médicos.
+\end{itemize}
+
+Aprender C++ no es solo aprender un lenguaje; es aprender cómo funcionan realmente los ordenadores. Es entender la memoria, la gestión de recursos y la eficiencia a un nivel fundamental. Es el camino para convertirte no solo en un programador, sino en un ingeniero de software capaz de resolver los problemas más desafiantes.
+
+\section{La Filosofía de Este Libro}
+\label{sec:filosofia}
+
+Este libro no es una mera colección de sintaxis y reglas de C++. Es una guía para convertirte en un profesional del software competente y adaptable, con una base sólida en el C++ moderno. Nuestra filosofía se resume en un principio fundamental: \textbf{enseñar lo correcto primero, explicar lo incorrecto cuando sea inevitable}.
+
+¿Qué significa esto en la práctica?
+\begin{itemize}
+    \item \textbf{C++ Moderno por Defecto:} Desde el primer momento, te expondremos a las mejores prácticas y características de C++11 en adelante. Esto incluye el uso de la Standard Template Library (STL) con contenedores como `std::vector` y `std::string`, y la gestión de recursos a través de punteros inteligentes. No te enseñaremos a programar como se hacía en los años 90, para luego pedirte que "desaprendas" esos hábitos.
+    \item \textbf{Preparación Profesional:} El código que aprenderás a escribir es el que se espera en un entorno de desarrollo moderno. Cuando sea necesario, haremos una "nota histórica" para que entiendas el código legado que podrías encontrar, pero siempre con la perspectiva de que tu código nuevo debe ser moderno y eficiente.
+    \item \textbf{Pensamiento Crítico:} Siguiendo el método socrático, este libro te hará preguntas que te obligarán a razonar y a entender el "porqué" detrás de cada decisión de diseño, en lugar de simplemente memorizar.
+    \item \textbf{Excelencia sin Compromisos:} Cada ejemplo de código será un modelo de buenas prácticas, legibilidad y eficiencia. Te mostraremos cómo escribir código que no solo funciona, sino que es robusto, mantenible y escalable.
+\end{itemize}
+
+Creemos que esta aproximación te equipará no solo con el conocimiento del lenguaje, sino con la mentalidad de un ingeniero de software de alto nivel, listo para enfrentar los desafíos del mundo real.
+
+\section{Cómo Leer Este Libro}
+\label{sec:como_leer}
+
+Aprender C++ puede parecer una tarea monumental, especialmente si es tu primer contacto con la programación o con un lenguaje de bajo nivel. Por ello, hemos diseñado este libro con una estrategia pedagógica muy específica, que queremos compartir contigo desde el principio. Considera esta sección como tu "manual de usuario" para aprovechar al máximo tu viaje de aprendizaje.
+
+Nuestra aproximación se basa en dos pilares:
+\begin{itemize}
+    \item \textbf{De la Intuición a la Precisión: El Poder de las Analogías.} Al inicio, encontrarás muchas analogías y explicaciones intuitivas. Nuestro objetivo es que primero comprendas el "qué" y el "porqué" de un concepto, construyendo una base mental sólida. No te preocupes si la explicación inicial no es 100% rigurosa en todos los detalles técnicos; la precisión absoluta vendrá después. Queremos que tu cerebro forme conexiones lógicas antes de abrumarlo con la complejidad.
+    \item \textbf{Las Dos Fases del Aprendizaje: Primero la Comprensión, Luego el Rigor Técnico.} Este libro te guiará a través de dos fases. En la primera, nos centraremos en la ejecución, la comprensión intuitiva y el disfrute de los programas. Queremos que veas resultados y que te sientas capaz. En la segunda fase, en capítulos más avanzados, introduciremos el tecnicismo, la terminología precisa y el rigor que exige el mercado laboral y académico. Esta progresión gradual te permitirá asimilar conceptos complejos sin sentirte abrumado.
+\end{itemize}
+
+Es fundamental que confíes en este proceso. No te exigiremos que entiendas cada detalle técnico a la perfección en el primer contacto. Si algo te parece confuso, anótalo y sigue adelante. Te prometemos que volveremos a esos conceptos, profundizando en ellos cuando tu mente esté lista para asimilarlos. Este es nuestro contrato contigo: te guiaremos paso a paso hacia la maestría, sin atajos, pero también sin saltos imposibles.
+
+\section{Preparando el Entorno}
+\label{sec:entorno}
+
+Un entorno de desarrollo es el conjunto de herramientas que necesitamos para escribir, compilar y ejecutar nuestros programas. Configurar un entorno local es un paso fundamental para cualquier programador, y es el camino que recomendamos para un aprendizaje profundo y proyectos serios.
+
+\textbf{Configuración Local (Recomendado):}
+Necesitaremos dos componentes principales:
+\begin{itemize}
+    \item \textbf{Un Compilador C++ (GCC):} El compilador es el programa que traduce el código C++ que escribimos (legible para humanos) a un lenguaje que el ordenador entiende (código máquina). Utilizaremos GCC (GNU Compiler Collection), que es el compilador estándar en la mayoría de los sistemas Linux y macOS, y está ampliamente disponible para Windows.
+        \begin{itemize}
+            \item \textbf{Instalación (Guía Rápida):}
+                \begin{itemize}
+                    \item \textbf{Linux:} Abre tu terminal y ejecuta `sudo apt update && sudo apt install build-essential` (para sistemas basados en Debian/Ubuntu).
+                    \item \textbf{macOS:} Instala las herramientas de línea de comandos de Xcode ejecutando `xcode-select --install` en tu terminal.
+                    \item \textbf{Windows:} La opción más recomendada es instalar MinGW-w64 o MSYS2, que proporcionan GCC y un entorno de terminal tipo Unix. Busca una guía actualizada en línea para "instalar MinGW-w64" o "instalar MSYS2" para obtener instrucciones detalladas.
+                \end{itemize}
+            \item \textbf{Verificación:} Una vez instalado, abre tu terminal y escribe `g++ --version`. Deberías ver la versión de GCC instalada.
+        \end{itemize}
+    \item \textbf{Un Editor de Código (Visual Studio Code):} Aquí es donde escribirás tu código. Visual Studio Code (VS Code) es una opción excelente: es gratuito, potente y muy popular.
+        \begin{itemize}
+            \item \textbf{Instalación:} Descárgalo desde la página oficial de Visual Studio Code e instálalo como cualquier otra aplicación.
+            \item \textbf{Extensiones Esenciales:} Dentro de VS Code, ve a la sección de Extensiones (Ctrl+Shift+X o Cmd+Shift+X) y busca e instala la extensión "C/C++" de Microsoft. Esto te proporcionará resaltado de sintaxis, autocompletado y depuración.
+        \end{itemize}
+\end{itemize}
+
+Una vez que tengas el compilador y el editor listos, estarás preparado para escribir, compilar y ejecutar tu primer programa C++. ¡El entorno local está listo!
+
+\textbf{Alternativa Online (Para Empezar Rápido):}
+Si prefieres empezar a escribir código de inmediato sin instalaciones, puedes usar compiladores online. Simplemente busca en Google "compilador C++" o "online C++ IDE". Los primeros resultados suelen ser opciones excelentes y muy intuitivas, como GDB Online Debugger. No te preocupes por aprender a usar la página; sus botones son muy claros para compilar y ejecutar. Son herramientas excelentes para probar pequeños fragmentos de código en los primeros capítulos y familiarizarte con la sintaxis. Sin embargo, ten en cuenta que estas herramientas no son adecuadas para proyectos grandes o características avanzadas que requieren una configuración de proyecto completa. Para un aprendizaje profundo y profesional, la configuración local es indispensable.
