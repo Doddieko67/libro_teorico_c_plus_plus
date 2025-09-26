@@ -111,7 +111,6 @@ const double PI = 3.14159265359; // Una constante para el valor de Pi
 const int MAX_INTENTOS = 3; // Número máximo de intentos
 \end{lstlisting}
 
-Es una buena práctica nombrar las constantes con mayúsculas y guiones bajos para distinguirlas fácilmente de las variables normales.
 
 % Sección de entrada de usuario que estaba comentada antes
 % \subsection{Entrada de Usuario con \texttt{std::cin}: Haciendo tus Programas Interactivos}
@@ -141,7 +140,8 @@ Es una buena práctica nombrar las constantes con mayúsculas y guiones bajos pa
 %     std::cout << "Hola, " << nombre << "! Bienvenido a C++." << std::endl;
 %
 %     // Pedimos la edad
-%     int edad;    std::cout << "\nIntroduce tu edad: ";
+%     int edad;    std::cout << "
+Introduce tu edad: ";
 %     std::cin >> edad;
 %
 %     // Mostramos la edad
@@ -154,7 +154,7 @@ Es una buena práctica nombrar las constantes con mayúsculas y guiones bajos pa
 \textbf{Consideraciones Importantes con \texttt{std::cin}:}
 \begin{itemize}
     \item \textbf{Tipo de Dato:} \texttt{std::cin} intentará leer el dato en el formato que espera la variable. Si el usuario introduce texto cuando se espera un número (como en el ejemplo de la edad), \texttt{std::cin} puede fallar y dejar la variable con un valor incorrecto o cero, y el flujo de entrada en un estado de error. Esto es algo que aprenderemos a manejar con más robustez en capítulos futuros.
-    \\item \\textbf{Espacios en Blanco:} Por defecto, \\texttt{std::cin >>} lee hasta el primer espacio en blanco. Esto significa que si el usuario introduce \"Juan P\\'erez\", solo \"Juan\" ser\\'a le\\'ido en la variable \\texttt{nombre}. Para leer l\\'ineas completas con espacios, se utiliza otra funci\\'on llamada \\texttt{std::getline()}, que exploraremos cuando hablemos m\\'as a fondo de cadenas de texto.
+    \item \textbf{Espacios en Blanco:} Por defecto, \texttt{std::cin >>} lee hasta el primer espacio en blanco. Esto significa que si el usuario introduce "Juan Pérez", solo "Juan" será leído en la variable \texttt{nombre}. Para leer líneas completas con espacios, se utiliza otra función llamada \texttt{std::getline()}, que exploraremos cuando hablemos más a fondo de cadenas de texto.
 \end{itemize}
 
 Con \texttt{std::cin}, tus programas pueden ahora interactuar dinámicamente con el usuario, abriendo un mundo de posibilidades para crear aplicaciones más interesantes y útiles.

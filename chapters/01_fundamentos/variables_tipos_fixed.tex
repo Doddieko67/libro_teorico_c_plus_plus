@@ -1,0 +1,160 @@
+\\section{Las Palabras del Lenguaje - Variables y Tipos de Datos}
+\\label{sec:variables_tipos}
+
+En el Capítulo 1, dimos nuestros primeros pasos en el mundo de C++ con el programa "Hola, Mundo". Fue una introducción a cómo un programa puede interactuar con la consola. Pero los programas no solo muestran mensajes; su verdadero poder reside en la capacidad de procesar y manipular información. Para ello, necesitamos un lugar donde guardar esos datos.
+
+\\subsection{Qué es una Variable: La Caja con Etiqueta}
+\\label{subsec:que_es_variable}
+
+Imagina que estás organizando una mudanza. Tienes muchos objetos diferentes (libros, ropa, utensilios de cocina) y necesitas guardarlos en cajas. Para no olvidar qué hay en cada caja, le pones una etiqueta: "Libros de cocina", "Ropa de invierno", etc.
+
+En programación, una \\textbf{variable} es exactamente como una de esas cajas con etiqueta. Es un espacio en la memoria del ordenador donde podemos guardar un dato. La "etiqueta" de la caja es el \\textbf{nombre de la variable}, y el "contenido" de la caja es el \\textbf{valor} que guarda.
+
+Por ejemplo, si queremos guardar la edad de una persona, podemos crear una variable llamada `edad` y asignarle el valor `30`. Si luego la persona cumple años, podemos cambiar el valor de esa variable a `31`.
+
+Las variables son fundamentales porque nos permiten:
+\\begin{itemize}
+    \\item \\textbf{Almacenar datos:} Desde números y texto hasta estructuras más complejas.
+    \\item \\textbf{Manipular datos:} Podemos cambiar el valor de una variable a lo largo de la ejecución del programa.
+    \\item \\textbf{Hacer nuestros programas dinámicos:} En lugar de trabajar con valores fijos, podemos procesar información que cambia (como la entrada del usuario o los resultados de cálculos).
+\\end{itemize}
+
+En las siguientes secciones, exploraremos los diferentes tipos de "cajas" que C++ nos ofrece, es decir, los tipos de datos que podemos guardar en nuestras variables.
+
+\\subsection{Tipos Fundamentales: Las Categorías de Datos}
+\\label{subsec:tipos_fundamentales}
+
+Así como no guardarías líquidos en una caja de cartón sin un recipiente adecuado, en programación no todos los datos se guardan de la misma manera. C++ es un lenguaje de \\textbf{tipado estático}, lo que significa que cada variable debe tener un \\textbf{tipo de dato} definido antes de poder usarla. Este tipo le dice al compilador qué clase de información va a almacenar la variable y cuánta memoria debe reservar para ella.
+
+Los tipos de datos fundamentales, también conocidos como tipos primitivos, son los bloques de construcción básicos para manejar información en C++. Aquí te presentamos los más comunes:
+
+\\begin{itemize}
+    \\item \\textbf{\\texttt{int} (Enteros):} Para números enteros, tanto positivos como negativos, sin parte decimal. Son ideales para contar cosas, edades, cantidades.
+    \\begin{lstlisting}[language=C++]
+int edad = 30;
+int numeroDeEstudiantes = 150;
+int temperatura = -5;
+    \\end{lstlisting}
+    \\item \\textbf{\\texttt{double} (Números de Punto Flotante):} Para números con parte decimal. Son útiles para medidas, precios, cálculos científicos que requieren precisión.
+    \\begin{lstlisting}[language=C++]
+double precio = 19.99;
+double pi = 3.14159;
+double altura = 1.75;
+    \\end{lstlisting}
+    \\item \\textbf{\\texttt{char} (Caracteres):} Para almacenar un único carácter, como una letra, un número o un símbolo. Se encierran entre comillas simples.
+    \\begin{lstlisting}[language=C++]
+char inicial = 'J';
+char opcion = 'S';
+char simbolo = '$';
+    \\end{lstlisting}
+    \\item \\textbf{\\texttt{bool} (Booleanos):} Para valores de verdad: \\texttt{true} (verdadero) o \\texttt{false} (falso). Son esenciales para tomar decisiones en tu programa.
+    \\begin{lstlisting}[language=C++]
+bool esMayorDeEdad = true;
+bool estaActivo = false;
+    \\end{lstlisting}
+\\end{itemize}
+
+Es importante elegir el tipo de dato correcto para cada variable, ya que esto afecta la cantidad de memoria que usa tu programa y el rango de valores que puede almacenar. Por ejemplo, un `int` no puede almacenar un número con decimales, y un `char` solo puede almacenar un carácter.
+
+\\subsection{Declaración e Inicialización: Dando Vida a tus Variables}
+\\label{subsec:declaracion_inicializacion}
+
+Antes de poder usar una variable, debemos \\textbf{declararla}. Declarar una variable es como decirle al compilador: "Oye, voy a necesitar una caja de este tipo y la voy a llamar así". En C++, la declaración de una variable sigue un patrón simple:
+
+\\begin{lstlisting}[language=C++]
+TipoDeDato NombreDeLaVariable;
+\\end{lstlisting}
+
+Por ejemplo:
+\\begin{lstlisting}[language=C++]
+int edad;
+double salario;
+char letra;
+bool juegoTerminado;
+\\end{lstlisting}
+
+En este punto, hemos reservado espacio en memoria para estas variables, pero sus "cajas" están vacías o, más precisamente, contienen un valor "basura" (lo que sea que estuviera en esa posición de memoria antes). Usar una variable no inicializada es una fuente común de errores y comportamientos impredecibles en C++.
+
+Por eso, es una \\textbf{buena práctica de código limpio} \\textbf{inicializar} tus variables en el momento de la declaración. Inicializar una variable es darle un valor inicial. Esto se puede hacer de varias maneras en C++ moderno:
+
+\\subsubsection{Inicialización por Copia (Asignación)}
+Es la forma más tradicional y se parece a una asignación:
+\\begin{lstlisting}[language=C++]
+int edad = 30; // La variable 'edad' se declara y se inicializa con el valor 30
+double pi = 3.14159; // 'pi' se inicializa con el valor de Pi
+\\end{lstlisting}
+
+\\subsubsection{Inicialización Directa (Paréntesis)}
+Similar a llamar a un constructor (lo veremos más adelante):
+\\begin{lstlisting}[language=C++]
+int cantidad(100); // 'cantidad' se inicializa con 100
+char simbolo('&'); // 'simbolo' se inicializa con '&'
+\\end{lstlisting}
+
+\\subsubsection{Inicialización Uniforme (Llaves - Preferida en C++ Moderno)}
+Introducida en C++11, es la forma más segura y recomendada, ya que previene ciertos errores y funciona de manera consistente para todos los tipos:
+\\begin{lstlisting}[language=C++]
+int puntuacion{0}; // 'puntuacion' se inicializa con 0
+bool estaAbierto{true}; // 'estaAbierto' se inicializa con true
+double factor{1.5};
+\\end{lstlisting}
+
+\\textbf{¿Por qué la inicialización uniforme es preferida?}
+Porque es más segura. Por ejemplo, si intentas inicializar un `int` con un valor que no cabe en él usando llaves, el compilador te dará un error, mientras que con la inicialización por copia podría haber una pérdida de datos silenciosa. Este es un ejemplo de cómo C++ moderno te ayuda a escribir código más robusto.
+
+\\subsubsection{Constantes: Variables que No Cambian}
+
+A veces, necesitas un valor que no cambie durante la ejecución del programa. Para esto, C++ tiene las \\textbf{constantes}, que se declaran usando la palabra clave \\texttt{const}. Una vez que una constante es inicializada, su valor no puede ser modificado.
+
+\\begin{lstlisting}[language=C++]
+const double PI = 3.14159265359; // Una constante para el valor de Pi
+const int MAX_INTENTOS = 3; // Número máximo de intentos
+\\end{lstlisting}
+
+Es una buena práctica nombrar las constantes con mayúsculas y guiones bajos para distinguirlas fácilmente de las variables normales.
+
+% Sección de entrada de usuario que estaba comentada antes
+% \\subsection{Entrada de Usuario con \\texttt{std::cin}: Haciendo tus Programas Interactivos}
+% \\label{subsec:entrada_usuario}
+%
+% Hasta ahora, nuestros programas han sido como monólogos: solo hablan ellos (imprimiendo en la consola). Pero para que un programa sea verdaderamente útil e interactivo, necesita poder "escuchar" al usuario, es decir, leer datos que el usuario introduce por teclado.
+%
+% Para esto, C++ nos proporciona \\texttt{std::cin} (abreviatura de "Character Input"), que es el compañero de \\texttt{std::cout}. Mientras \\texttt{std::cout} usa el operador \\texttt{<<} (inserción) para enviar datos a la consola, \\texttt{std::cin} usa el operador \\texttt{>>} (extracción) para \\textbf{extraer} datos desde el teclado y guardarlos en una variable.
+%
+% Veamos un ejemplo sencillo:
+%
+% \\begin{lstlisting}[language=C++]
+% #include <iostream> // Necesario para std::cout y std::cin
+% #include <string>   // Necesario para std::string
+%
+% int main() {
+%     // Declaramos una variable para guardar el nombre del usuario
+%     std::string nombre; // Usamos std::string para texto, lo veremos en detalle más adelante
+%
+%     // Pedimos al usuario que introduzca su nombre
+%     std::cout << "Por favor, introduce tu nombre: ";
+%
+%     // Leemos el nombre introducido por el usuario y lo guardamos en la variable 'nombre'
+%     std::cin >> nombre;
+%
+%     // Saludamos al usuario usando el nombre que ha introducido
+%     std::cout << "Hola, " << nombre << "! Bienvenido a C++." << std::endl;
+%
+%     // Pedimos la edad
+%     int edad;    std::cout << "\nIntroduce tu edad: ";
+%     std::cin >> edad;
+%
+%     // Mostramos la edad
+%     std::cout << "Tienes " << edad << " años." << std::endl;
+%
+%     return 0;
+% }
+% \\end{lstlisting}
+
+\\textbf{Consideraciones Importantes con \\texttt{std::cin}:}
+\\begin{itemize}
+    \\item \\textbf{Tipo de Dato:} \\texttt{std::cin} intentará leer el dato en el formato que espera la variable. Si el usuario introduce texto cuando se espera un número (como en el ejemplo de la edad), \\texttt{std::cin} puede fallar y dejar la variable con un valor incorrecto o cero, y el flujo de entrada en un estado de error. Esto es algo que aprenderemos a manejar con más robustez en capítulos futuros.
+    \\item \\textbf{Espacios en Blanco:} Por defecto, \\texttt{std::cin >>} lee hasta el primer espacio en blanco. Esto significa que si el usuario introduce "Juan P\\'erez", solo "Juan" ser\\'a le\\'ido en la variable \\texttt{nombre}. Para leer l\\'ineas completas con espacios, se utiliza otra funci\\'on llamada \\texttt{std::getline()}, que exploraremos cuando hablemos m\\'as a fondo de cadenas de texto.
+\\end{itemize}
+
+Con \\texttt{std::cin}, tus programas pueden ahora interactuar din\\'amicamente con el usuario, abriendo un mundo de posibilidades para crear aplicaciones m\\'as interesantes y \\'utiles.
