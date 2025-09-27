@@ -18,6 +18,7 @@ La estructura de directorios del proyecto está diseñada para organizar lógica
 libro_cpp_teorico/
 ├── main.tex                    # Documento maestro
 ├── preamble.tex               # Configuración global
+├── bibliography.bib           # Base de datos de referencias académicas
 ├── chapters/                  # Contiene los capítulos
 │   └── 01_fundamentos/        # Directorio para el Capítulo 1
 │       ├── main_fundamentos.tex # Archivo maestro del Capítulo 1
@@ -27,7 +28,31 @@ libro_cpp_teorico/
 │       ├── operadores_expresiones.tex
 │       ├── estructuras_control.tex
 │       └── funciones.tex
-└── ...
+├── appendices/                # Material complementario
+│   ├── a_instalacion.tex      # Guías de configuración
+│   └── b_referencias.tex      # Respuestas a ejercicios
+├── figures/                   # Recursos visuales organizados
+│   ├── diagrams/             # Diagramas conceptuales (Mermaid/TikZ)
+│   ├── screenshots/          # Capturas de IDEs y herramientas
+│   └── illustrations/        # Elementos gráficos generales
+├── code/                     # Ejemplos de código ejecutables
+│   ├── chapter01/            # Ejemplos para el capítulo 1
+│   │   ├── src/              # Archivos fuente (.cpp) organizados por tema
+│   │   │   ├── hola_mundo/       # Ejemplos para introducción y primer programa
+│   │   │   ├── variables_datos/  # Ejemplos para variables y tipos de datos
+│   │   │   ├── operadores/       # Ejemplos para operadores y expresiones
+│   │   │   ├── estructuras_control/ # Ejemplos para estructuras de control
+│   │   │   └── funciones/        # Ejemplos para funciones
+│   │   ├── bin/              # Ejecutables compilados
+│   │   ├── Makefile          # Archivo de compilación
+│   │   └── README.md         # Documentación del capítulo
+│   ├── chapter02/            # Ejemplos para el capítulo 2
+│   └── ...
+├── build/                    # Archivos generados (ignorados en Git)
+└── scripts/                  # Automatización del flujo de trabajo
+    ├── compile.sh            # Compilación automática
+    ├── generate_diagrams.py  # Generación de visualizaciones
+    └── clean.sh              # Limpieza de archivos temporales
 ```
 
 ### 1.3 Gestión de Archivos (DRY con `import`)
@@ -111,35 +136,44 @@ Los ejemplos de código C++ se mantienen en una estructura separada en la carpet
 ```
 code/
 └── chapter01/
-    ├── src/           # Archivos fuente (.cpp)
-    ├── bin/           # Ejecutables compilados
-    ├── Makefile       # Archivo de compilación
-    ├── README.md      # Documentación del capítulo
-    └── INDICE_EJEMPLOS.md  # Índice detallado de ejemplos
+    ├── src/                  # Archivos fuente (.cpp) organizados por tema
+    │   ├── hola_mundo/       # Ejemplos para introducción y primer programa
+    │   ├── variables_datos/  # Ejemplos para variables y tipos de datos
+    │   ├── operadores/       # Ejemplos para operadores y expresiones
+    │   ├── estructuras_control/ # Ejemplos para estructuras de control
+    │   └── funciones/        # Ejemplos para funciones
+    ├── bin/                  # Ejecutables compilados
+    ├── Makefile              # Archivo de compilación
+    ├── README.md             # Documentación del capítulo
+    └── INDICE_EJEMPLOS.md    # Índice detallado de ejemplos
 ```
+
+Esta estructura jerárquica permite una organización temática clara de los ejemplos de código, facilitando tanto el mantenimiento como la búsqueda de ejemplos específicos relacionados con cada concepto del libro.
 
 ### 4.2 Referencia a Ejemplos desde LaTeX
 
-En lugar de incluir código C++ directamente en los archivos LaTeX (lo que puede causar problemas con caracteres especiales), los archivos LaTeX hacen referencia a los ejemplos mediante:
+En lugar de incluir código C++ directamente en los archivos LaTeX (lo que puede causar problemas con caracteres especiales), los archivos LaTeX hacen referencia a los ejemplos organizados mediante:
 
 1. **Explicaciones teóricas** en el texto LaTeX
-2. **Instrucciones para compilar y ejecutar** los ejemplos
-3. **Fragmentos de código mostrados con el paquete `listings`** cuando es necesario incluir código directamente
-4. **Capturas de pantalla de la ejecución** para mostrar resultados
+2. **Inclusión directa de código con el paquete `listings`** usando `\lstinputlisting[language=C++, caption={...}]{ruta/al/archivo.cpp}`
+3. **Instrucciones para compilar y ejecutar** los ejemplos
+4. **Fragmentos de código mostrados con el paquete `listings`** cuando es necesario incluir código directamente
 
-### 4.3 Beneficios de esta Organización
+### 4.3 Beneficios de la Organización Temática
 
 - **Separación de preocupaciones:** El contenido teórico (LaTeX) se mantiene separado del código práctico (C++)
+- **Organización temática:** Los ejemplos están agrupados por conceptos específicos (variables, funciones, etc.)
+- **Facilidad de mantenimiento:** Es más fácil ubicar y actualizar ejemplos específicos
+- **Mejora en la colaboración:** Autores pueden trabajar en ejemplos de temas específicos sin interferir con otros
 - **Compilación independiente:** Los ejemplos se pueden compilar y probar sin afectar el documento LaTeX
-- **Mantenimiento simplificado:** Cambios en el código no requieren modificar archivos LaTeX
-- **Experiencia del lector mejorada:** Los lectores pueden descargar y experimentar con ejemplos reales
+- **Experiencia del lector mejorada:** Los lectores pueden descargar y experimentar con ejemplos reales organizados por tema
 - **Evita problemas de codificación:** No hay conflictos con caracteres especiales entre LaTeX y C++
 
 ### 4.4 Proceso de Trabajo Recomendado
 
-1. **Desarrollar ejemplos en `code/chapter01/src/`:** Crear y probar ejemplos de código C++ en esta ubicación
+1. **Desarrollar ejemplos en subdirectorios temáticos en `code/chapter01/src/`:** Crear y probar ejemplos de código C++ en el subdirectorio correspondiente a su tema
 2. **Compilar con el Makefile:** Usar `make all` en `code/chapter01/` para compilar todos los ejemplos
-3. **Referenciar desde LaTeX:** En los archivos `.tex`, incluir instrucciones sobre cómo acceder a los ejemplos
+3. **Referenciar desde LaTeX:** En los archivos `.tex`, usar `\lstinputlisting` para incluir directamente los ejemplos organizados
 4. **Verificar integración:** Asegurarse de que las explicaciones en LaTeX corresponden correctamente con los ejemplos de código
 
-Esta organización permite mantener un flujo de trabajo eficiente donde el contenido teórico y los ejemplos prácticos se complementan sin interferirse mutuamente.
+Esta organización temática permite mantener un flujo de trabajo eficiente donde el contenido teórico y los ejemplos prácticos se complementan sin interferirse mutuamente, facilitando tanto el desarrollo como la futura expansión del contenido.

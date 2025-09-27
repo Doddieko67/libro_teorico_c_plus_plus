@@ -5,4 +5,25 @@ Hasta ahora, hemos aprendido como almacenar datos en variables. Pero almacenar i
 
 Un \textbf{operador} es un simbolo que le dice al compilador que realice una operacion especifica en uno o mas operandos (variables o valores). Una \textbf{expresion} es una combinacion de variables, constantes y operadores que el programa evalua para producir un valor.
 
-\lstinputlisting[language=C++, caption={Ejemplo de operadores aritmeticos en C++}]{../../code/chapter01/src/operadores/operadores_aritmeticos.cpp}
+\\lstinputlisting[language=C++, caption={Ejemplo de operadores aritmeticos en C++}]{../../code/chapter01/src/operadores/operadores_aritmeticos.cpp}
+
+\\subsection{Precedencia de Operadores y Operadores de Asignación Compuesta}
+
+Cuando una expresión contiene múltiples operadores, C++ evalúa los operadores según su nivel de precedencia. La \\textbf{precedencia de operadores} determina el orden en que se realizan las operaciones.
+
+\\begin{lstlisting}[language=C++]
+// 5 + 3 * 2 = 11 (no 16), porque * tiene precedencia sobre +
+int resultado1 = 5 + 3 * 2;
+
+// (5 + 3) * 2 = 16, porque los paréntesis tienen la máxima precedencia
+int resultado2 = (5 + 3) * 2;
+
+// 10 - 4 / 2 = 8 (no 3), porque / tiene precedencia sobre -
+int resultado3 = 10 - 4 / 2;
+\\end{lstlisting}
+
+Los operadores de asignación compuesta combinan un operador aritmético con la asignación, lo que hace que el código sea más conciso:
+
+\\lstinputlisting[language=C++, caption={Ejemplo de precedencia de operadores y operadores de asignación compuesta en C++}]{../../code/chapter01/src/operadores/precedencia.cpp}
+
+\\textbf{Importante:} Es recomendable usar paréntesis para hacer explícito el orden de operaciones cuando haya alguna ambigüedad o para mejorar la legibilidad del código.
