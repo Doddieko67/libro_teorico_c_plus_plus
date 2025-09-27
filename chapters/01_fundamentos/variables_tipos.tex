@@ -30,29 +30,12 @@ Los tipos de datos fundamentales, también conocidos como tipos primitivos, son 
 
 \begin{itemize}
     \item \textbf{\texttt{int} (Enteros):} Para números enteros, tanto positivos como negativos, sin parte decimal. Son ideales para contar cosas, edades, cantidades.
-    \begin{lstlisting}[language=C++]
-int edad = 30;
-int numeroDeEstudiantes = 150;
-int temperatura = -5;
-    \end{lstlisting}
     \item \textbf{\texttt{double} (Números de Punto Flotante):} Para números con parte decimal. Son útiles para medidas, precios, cálculos científicos que requieren precisión.
-    \begin{lstlisting}[language=C++]
-double precio = 19.99;
-double pi = 3.14159;
-double altura = 1.75;
-    \end{lstlisting}
     \item \textbf{\texttt{char} (Caracteres):} Para almacenar un único carácter, como una letra, un número o un símbolo. Se encierran entre comillas simples.
-    \begin{lstlisting}[language=C++]
-char inicial = 'J';
-char opcion = 'S';
-char simbolo = '$';
-    \end{lstlisting}
     \item \textbf{\texttt{bool} (Booleanos):} Para valores de verdad: \texttt{true} (verdadero) o \texttt{false} (falso). Son esenciales para tomar decisiones en tu programa.
-    \begin{lstlisting}[language=C++]
-bool esMayorDeEdad = true;
-bool estaActivo = false;
-    \end{lstlisting}
 \end{itemize}
+
+\lstinputlisting[language=C++, caption={Ejemplo de declaración e inicialización de tipos fundamentales}]{../../code/chapter01/src/variables_datos/tipos_fundamentales.cpp}
 
 Es importante elegir el tipo de dato correcto para cada variable, ya que esto afecta la cantidad de memoria que usa tu programa y el rango de valores que puede almacenar. Por ejemplo, un `int` no puede almacenar un número con decimales, y un `char` solo puede almacenar un carácter.
 
@@ -61,17 +44,8 @@ Es importante elegir el tipo de dato correcto para cada variable, ya que esto af
 
 Antes de poder usar una variable, debemos \textbf{declararla}. Declarar una variable es como decirle al compilador: "Oye, voy a necesitar una caja de este tipo y la voy a llamar así". En C++, la declaración de una variable sigue un patrón simple:
 
-\begin{lstlisting}[language=C++]
-TipoDeDato NombreDeLaVariable;
-\end{lstlisting}
-
 Por ejemplo:
-\begin{lstlisting}[language=C++]
-int edad;
-double salario;
-char letra;
-bool juegoTerminado;
-\end{lstlisting}
+\lstinputlisting[language=C++, caption={Ejemplo de declaración de variables}]{../../code/chapter01/src/variables_datos/inicializacion.cpp}
 
 En este punto, hemos reservado espacio en memoria para estas variables, pero sus "cajas" están vacías o, más precisamente, contienen un valor "basura" (lo que sea que estuviera en esa posición de memoria antes). Usar una variable no inicializada es una fuente común de errores y comportamientos impredecibles en C++.
 
@@ -79,32 +53,12 @@ Por eso, es una \textbf{buena práctica de código limpio} \textbf{inicializar} 
 
 \subsubsection{Inicialización por Copia (Asignación)}
 Es la forma más tradicional y se parece a una asignación:
-\begin{lstlisting}[language=C++]
-int edad = 30; // La variable 'edad' se declara y se inicializa con el valor 30
-double pi = 3.14159; // 'pi' se inicializa con el valor de Pi
-\end{lstlisting}
 
 \subsubsection{Inicialización Directa (Paréntesis)}
 Similar a llamar a un constructor (lo veremos más adelante):
-\begin{lstlisting}[language=C++]
-int cantidad(100); // 'cantidad' se inicializa con 100
-char simbolo('&'); // 'simbolo' se inicializa con '&'
-\end{lstlisting}
 
 \subsubsection{Inicialización Uniforme (Llaves - Preferida en C++ Moderno)}
 Introducida en C++11, es la forma más segura y recomendada, ya que previene ciertos errores y funciona de manera consistente para todos los tipos:
-\begin{lstlisting}[language=C++]
-int puntuacion{0}; // 'puntuacion' se inicializa con 0
-bool estaAbierto{true}; // 'estaAbierto' se inicializa con true
-double factor{1.5};
-\end{lstlisting}
-
-\subsubsection{Ejemplo Completo de Declaración e Inicialización}
-Veamos un ejemplo completo que demuestra todos los conceptos de declaración e inicialización que hemos discutido:
-
-\lstinputlisting[language=C++, firstline=3, lastline=22]{../../code/chapter01/src/variables.cpp}
-
-Este ejemplo completo muestra cómo se pueden declarar e inicializar variables de diferentes tipos, así como el uso de constantes en un programa C++ real.
 
 \textbf{¿Por qué la inicialización uniforme es preferida?}
 Porque es más segura. Por ejemplo, si intentas inicializar un `int` con un valor que no cabe en él usando llaves, el compilador te dará un error, mientras que con la inicialización por copia podría haber una pérdida de datos silenciosa. Este es un ejemplo de cómo C++ moderno te ayuda a escribir código más robusto.
@@ -113,10 +67,7 @@ Porque es más segura. Por ejemplo, si intentas inicializar un `int` con un valo
 
 A veces, necesitas un valor que no cambie durante la ejecución del programa. Para esto, C++ tiene las \textbf{constantes}, que se declaran usando la palabra clave \texttt{const}. Una vez que una constante es inicializada, su valor no puede ser modificado.
 
-\begin{lstlisting}[language=C++]
-const double PI = 3.14159265359; // Una constante para el valor de Pi
-const int MAX_INTENTOS = 3; // Número máximo de intentos
-\end{lstlisting}
+\lstinputlisting[language=C++, caption={Ejemplo de constantes en C++}]{../../code/chapter01/src/variables_datos/constantes.cpp}
 
 Es una buena práctica nombrar las constantes con mayúsculas y guiones bajos para distinguirlas fácilmente de las variables normales.
 
@@ -145,7 +96,7 @@ Es una buena práctica nombrar las constantes con mayúsculas y guiones bajos pa
 %     std::cin >> nombre;
 %
 %     // Saludamos al usuario usando el nombre que ha introducido
-%     std::cout << "Hola, " << nombre << "! Bienvenido a C++." << std::endl;
+%     std::cout << "Hola, " << nombre << "! Bienvenido a C++. " << std::endl;
 %
 %     // Pedimos la edad
 %     int edad;    std::cout << "\nIntroduce tu edad: ";
@@ -159,9 +110,5 @@ Es una buena práctica nombrar las constantes con mayúsculas y guiones bajos pa
 % \end{lstlisting}
 
 \textbf{Consideraciones Importantes con \texttt{std::cin}:}
-\begin{itemize}
-    \item \textbf{Tipo de Dato:} \texttt{std::cin} intentará leer el dato en el formato que espera la variable. Si el usuario introduce texto cuando se espera un número (como en el ejemplo de la edad), \texttt{std::cin} puede fallar y dejar la variable con un valor incorrecto o cero, y el flujo de entrada en un estado de error. Esto es algo que aprenderemos a manejar con más robustez en capítulos futuros.
-    \\item \\textbf{Espacios en Blanco:} Por defecto, \\texttt{std::cin >>} lee hasta el primer espacio en blanco. Esto significa que si el usuario introduce \"Juan P\\'erez\", solo \"Juan\" ser\\'a le\\'ido en la variable \\texttt{nombre}. Para leer l\\'ineas completas con espacios, se utiliza otra funci\\'on llamada \\texttt{std::getline()}, que exploraremos cuando hablemos m\\'as a fondo de cadenas de texto.
-\end{itemize}
 
 Con \texttt{std::cin}, tus programas pueden ahora interactuar dinámicamente con el usuario, abriendo un mundo de posibilidades para crear aplicaciones más interesantes y útiles.

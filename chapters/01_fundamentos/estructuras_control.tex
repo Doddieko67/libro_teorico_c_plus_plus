@@ -1,14 +1,12 @@
-\section{Tomando Decisiones y Repitiendo Tareas - Estructuras de Control}
-\label{sec:estructuras_control}
+\section{Tomando Decisiones y Repitiendo Tareas - Estructuras de Control}\label{sec:estructuras_control}
 
 Hasta ahora, nuestros programas han seguido una ejecución lineal: las instrucciones se ejecutan una detrás de otra, en el orden en que están escritas. Pero la verdadera potencia de los programas viene de su capacidad para \textbf{tomar decisiones} y \textbf{repetir tareas} según ciertas condiciones. Para lograr esto, C++ nos proporciona \textbf{estructuras de control}: instrucciones especiales que alteran el flujo normal de ejecución del programa.
 
 Estas estructuras nos permiten crear programas que responden dinámicamente a diferentes situaciones, lo que los convierte de simples cálculos en herramientas inteligentes capaces de resolver problemas complejos.
 
-\subsection{Condicionales: Tomando Decisiones con \texttt{if}, \texttt{else if} y \texttt{else}}
-\label{subsec:condicionales}
+\subsection{Condicionales: Tomando Decisiones con \texttt{if}, \texttt{else if} y \texttt{else}}\label{subsec:condicionales}
 
-Imagina que estás conduciendo y llegas a un semáforo. Tu acción depende del color del semáforo: si está en verde, continúas; si está en rojo, te detienes; si está en amarillo, evalúas la situación. Este tipo de toma de decisiones puede describirse como ``\textit{si se cumple esta condición, haz esto}''.
+Imagina que estás conduciendo y llegas a un semáforo. Tu acción depende del color del semáforo: si está en verde, continúas; si está en rojo, te detienes; si está en amarillo, evalúas la situación. Este tipo de toma de decisiones puede describirse como "\textit{si se cumple esta condición, haz esto}".
 
 En programación, las estructuras condicionales funcionan exactamente igual. La instrucción \texttt{if} evalúa una condición y, si es verdadera, ejecuta un bloque de código. La sintaxis es:
 
@@ -20,75 +18,23 @@ if (condicion) {
 
 Veamos un ejemplo sencillo:
 
-\begin{lstlisting}[language=C++]
-#include <iostream>
-using namespace std;
-
-int main() {
-    int edad = 18;
-    
-    if (edad >= 18) {
-        cout << "Eres mayor de edad. Puedes votar." << endl;
-    }
-    
-    cout << "Programa terminado." << endl;
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting[language=C++, caption={Ejemplo simple de condicional if en C++}]{../../code/chapter01/src/estructuras_control/if_simple.cpp}
 
 Pero ¿qué pasa si queremos hacer algo diferente cuando la condición no se cumple? Para eso usamos \texttt{else}:
 
-\begin{lstlisting}[language=C++]
-#include <iostream>
-using namespace std;
-
-int main() {
-    int edad = 16;
-    
-    if (edad >= 18) {
-        cout << "Eres mayor de edad. Puedes votar." << endl;
-    } else {
-        cout << "Eres menor de edad. No puedes votar todavia." << endl;
-    }
-    
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting[language=C++, caption={Ejemplo de condicional if-else en C++}]{../../code/chapter01/src/estructuras_control/if_else.cpp}
 
 Y ¿qué pasa si tenemos más de dos posibilidades? Podemos encadenar múltiples condiciones con \texttt{else if}:
 
-\begin{lstlisting}[language=C++]
-#include <iostream>
-using namespace std;
-
-int main() {
-    int calificacion = 85;
-    
-    if (calificacion >= 90) {
-        cout << "Excelente! Nota A" << endl;
-    } else if (calificacion >= 80) {
-        cout << "Muy bien! Nota B" << endl;
-    } else if (calificacion >= 70) {
-        cout << "Bien! Nota C" << endl;
-    } else if (calificacion >= 60) {
-        cout << "Suficiente! Nota D" << endl;
-    } else {
-        cout << "Reprobado! Nota F" << endl;
-    }
-    
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting[language=C++, caption={Ejemplo de múltiples condicionales if-else if-else en C++}]{../../code/chapter01/src/estructuras_control/if_else_multiple.cpp}
 
 ¿Notas cómo el programa evalúa cada condición en orden y se detiene en la primera que es verdadera? Esta es una característica importante de las estructuras \texttt{if-else}: solo se ejecuta el primer bloque cuya condición sea verdadera.
 
-\subsection{Operadores de Comparación y Lógicos: Expresiones Condicionales}
-\label{subsec:operadores_comparacion_logicos}
+\subsection{Operadores de Comparación y Lógicos: Expresiones Condicionales}\label{subsec:operadores_comparacion_logicos}
 
 Para que las estructuras condicionales funcionen, necesitamos \textbf{expresiones que devuelvan \texttt{true} o \texttt{false}}. Estas son las que usamos en las condiciones del \texttt{if}.
 
 \subsubsection{Operadores de Comparación}
-
 \begin{itemize}
     \item \textbf{\texttt{==}:} Igual a
     \item \textbf{\texttt{!=}:} Diferente de
@@ -124,44 +70,9 @@ A veces necesitamos combinar varias condiciones. Para eso usamos operadores lóg
 
 Veamos ejemplos prácticos:
 
-\begin{lstlisting}[language=C++]
-#include <iostream>
-using namespace std;
+\lstinputlisting[language=C++, caption={Ejemplo de operadores lógicos en C++}]{../../code/chapter01/src/estructuras_control/operadores_logicos.cpp}
 
-int main() {
-    int edad = 25;
-    bool tieneLicencia = true;
-    
-    // Operador AND (&&)
-    if (edad >= 18 && tieneLicencia) {
-        cout << "Puedes conducir legalmente." << endl;
-    }
-    
-    // Operador OR (||)
-    int temperatura = 35;
-    if (temperatura > 30 || temperatura < 10) {
-        cout << "Hace mucho calor o mucho frio." << endl;
-    }
-    
-    // Operador NOT (!)
-    bool estaLloviendo = false;
-    if (!estaLloviendo) {
-        cout << "Hace buen tiempo para salir." << endl;
-    }
-    
-    // Combinacion de operadores
-    bool esFinde = true;
-    bool tareaCompleta = false;
-    if (esFinde && !tareaCompleta) {
-        cout << "Es fin de semana y no tengo tareas. Genial!" << endl;
-    }
-    
-    return 0;
-}
-\end{lstlisting}
-
-\subsection{Bucles: Repitiendo Tareas con \texttt{while} y \texttt{for}}
-\label{subsec:bucles}
+\subsection{Bucles: Repitiendo Tareas con \texttt{while} y \texttt{for}}\label{subsec:bucles}
 
 Imagina que necesitas saludar a 100 personas. No escribirías 100 veces ``Hola, ¿cómo estás?'' ¿verdad? Necesitas una forma de repetir una tarea un número específico de veces o mientras se cumpla una condición. Para eso existen los \textbf{bucles}.
 
@@ -179,22 +90,7 @@ while (condicion) {
 
 Veamos un ejemplo:
 
-\begin{lstlisting}[language=C++]
-#include <iostream>
-using namespace std;
-
-int main() {
-    int contador = 1;
-    
-    while (contador <= 5) {
-        cout << "Contador: " << contador << endl;
-        contador++;  // Importante: incrementar el contador para evitar bucle infinito!
-    }
-    
-    cout << "Bucle terminado." << endl;
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting[language=C++, caption={Ejemplo de bucle while en C++}]{../../code/chapter01/src/estructuras_control/bucle_while.cpp}
 
 \textbf{¡Cuidado!} Es fundamental que la condición eventualmente se vuelva falsa, de lo contrario crearás un \textbf{bucle infinito} que no termina nunca:
 
@@ -219,20 +115,7 @@ for (inicializacion; condicion; actualizacion) {
 
 Veamos un ejemplo equivalente al bucle \texttt{while} anterior:
 
-\begin{lstlisting}[language=C++]
-#include <iostream>
-using namespace std;
-
-int main() {
-    // for (inicializacion; condicion; actualizacion)
-    for (int i = 1; i <= 5; i++) {
-        cout << "Contador: " << i << endl;
-    }
-    
-    cout << "Bucle terminado." << endl;
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting[language=C++, caption={Ejemplo de bucle for en C++}]{../../code/chapter01/src/estructuras_control/bucle_for.cpp}
 
 El bucle \texttt{for} es especialmente útil cuando necesitas un contador y sabes cuántas repeticiones necesitas. Cada parte del bucle \texttt{for} tiene un propósito:
 
@@ -246,94 +129,26 @@ El bucle \texttt{for} es especialmente útil cuando necesitas un contador y sabe
 
 Cuando trabajamos con contenedores como \texttt{std::vector} o \texttt{std::string}, C++11 introdujo una forma más limpia y moderna de recorrer sus elementos: el bucle \texttt{for} basado en rango:
 
-\begin{lstlisting}[language=C++]
-#include <iostream>
-#include <vector>
-using namespace std;
+\lstinputlisting[language=C++, caption={Ejemplo de bucle for basado en rango en C++}]{../../code/chapter01/src/estructuras_control/bucle_for_rango.cpp}
 
-int main() {
-    // Creamos un vector de enteros
-    vector<int> numeros = {10, 20, 30, 40, 50};
-    
-    // Recorremos todos los elementos del vector
-    for (int valor : numeros) {
-        cout << "Valor: " << valor << endl;
-    }
-    
-    return 0;
-}
-\end{lstlisting}
+Este bucle se lee como "para cada \texttt{valor} en \texttt{numeros}". Es más limpio, menos propenso a errores y es la forma moderna de iterar en C++.
 
-Este bucle se lee como ``para cada \texttt{valor} en \texttt{numeros}''. Es más limpio, menos propenso a errores y es la forma moderna de iterar en C++.
-
-\textbf{¿Por qué mencionamos \texttt{std::vector} y \texttt{std::string}?} Porque representan una de las herramientas más importantes de C++ moderno: la Standard Template Library (STL). Estos tipos de datos hacen tu vida más fácil al manejar colecciones de elementos de forma segura y eficiente.
-
-\subsection{Introducción a la STL: \texttt{std::string} y \texttt{std::vector} como Herramientas Estándar}
-\label{subsec:introduccion_stl}
+\subsection{Introducción a la STL: \texttt{std::string} y \texttt{std::vector} como Herramientas Estándar}\label{subsec:introduccion_stl}
 
 Hasta ahora, para almacenar texto, mencionamos usar \texttt{char} para un solo carácter. Pero ¿qué pasa cuando necesitas almacenar palabras o frases completas? En C clásico, esto implicaba trabajar con arreglos de caracteres y funciones complicadas. Afortunadamente, C++ moderno nos ofrece \texttt{std::string}, que hace el manejo de texto mucho más sencillo.
 
-\begin{lstlisting}[language=C++]
-#include <iostream>
-#include <string>  // Necesario para usar std::string
-using namespace std;
+\lstinputlisting[language=C++, caption={Ejemplo de uso de std::string en C++}]{../../code/chapter01/src/estructuras_control/string_ejemplo.cpp}
 
-int main() {
-    // Crear y usar strings es simple
-    string nombre = "Maria";
-    string apellido = "Gonzalez";
-    
-    // Concatenar strings es intuitivo
-    string nombreCompleto = nombre + " " + apellido;
-    cout << "Nombre completo: " << nombreCompleto << endl;
-    
-    // Obtener la longitud de un string
-    cout << "Longitud: " << nombreCompleto.length() << endl;
-    
-    // Acceder a caracteres individuales
-    cout << "Primera letra: " << nombreCompleto[0] << endl;
-    
-    return 0;
-}
-\end{lstlisting}
+Del mismo modo, para almacenar colecciones de datos, en lugar de arreglos de tamaño fijo, C++ moderno ofrece \texttt{std::vector}, que puede crecer o reducirse dinámicamente:
 
-De la misma manera, cuando necesitas almacenar múltiples elementos del mismo tipo (como una lista de calificaciones, una lista de nombres, etc.), en lugar de crear múltiples variables, puedes usar \texttt{std::vector}:
+\lstinputlisting[language=C++, caption={Ejemplo de uso de std::vector en C++}]{../../code/chapter01/src/estructuras_control/vector_ejemplo.cpp}
 
-\begin{lstlisting}[language=C++]
-#include <iostream>
-#include <vector>  // Necesario para usar std::vector
-using namespace std;
+Estos contenedores (\texttt{std::string} y \texttt{std::vector}) forman parte de la Standard Template Library (STL), y aprenderás mucho más sobre ellos y otras herramientas de la STL en capítulos posteriores. Pero por ahora, ten en cuenta que son la forma moderna y segura de manejar texto y colecciones de datos en C++.
 
-int main() {
-    // Crear un vector de enteros
-    vector<int> calificaciones = {85, 92, 78, 96, 88};
-    
-    // Acceder a elementos del vector
-    cout << "Primera calificacion: " << calificaciones[0] << endl;
-    cout << "Ultima calificacion: " << calificaciones[4] << endl;
-    
-    // Recorrer el vector con bucle for basado en rango
-    cout << "Todas las calificaciones: ";
-    for (int calif : calificaciones) {
-        cout << calif << " ";
-    }
-    cout << endl;
-    
-    // Agregar un elemento al vector
-    calificaciones.push_back(95);
-    cout << "Numero de calificaciones despues de agregar: " << calificaciones.size() << endl;
-    
-    return 0;
-}
-\end{lstlisting}
+\subsection{Ejemplo Completo de Estructuras de Control}
 
-Estos contenedores (\\texttt{std::string} y \\texttt{std::vector}) forman parte de la Standard Template Library (STL), y aprenderás mucho más sobre ellos y otras herramientas de la STL en capítulos posteriores. Pero por ahora, ten en cuenta que son la forma moderna y segura de manejar texto y colecciones de datos en C++.
-
-\\subsection{Ejemplo Completo de Estructuras de Control}
 Veamos un ejemplo completo que demuestra todas las estructuras de control que hemos discutido:
 
-\\lstinputlisting[language=C++, firstline=5, lastline=22]{../../code/chapter01/src/estructuras_control.cpp}
+\lstinputlisting[language=C++, caption={Ejemplo completo de estructuras de control en C++}]{../../code/chapter01/src/estructuras_control/ejemplo_completo.cpp}
 
-Este ejemplo completo muestra cómo se utilizan las estructuras condicionales (\\texttt{if-else}) y los bucles (\\texttt{for} tradicional y basado en rango) en un programa C++ real.
-
-\\textbf{Recuerda:} Las estructuras de control son las herramientas que te permiten crear programas inteligentes y reactivos. Dominarlas te dará el poder de implementar la lógica que resuelve problemas reales.
+Este ejemplo completo muestra cómo se utilizan las estructuras condicionales (\texttt{if-else}) y los bucles (\texttt{for} tradicional y basado en rango) en un programa C++ real.
